@@ -1,0 +1,14 @@
+ local namecall
+    namecall = hookmetamethod(game, "__namecall", function(self, ...)
+        local Args = {...}
+        if getnamecallmethod() == "FireServer" and tostring(self) == "WS" then
+            return
+        elseif getnamecallmethod() == "FireServer" and tostring(self) == "WS2" then
+            return
+        elseif getnamecallmethod() == "FireServer" and tostring(self) == "AdminGUI" then
+            return
+        elseif getnamecallmethod() == "FireServer" and tostring(self) == "Ban" then
+            return
+        end
+        return namecall(self, ...)
+    end)
